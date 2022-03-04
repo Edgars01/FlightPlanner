@@ -11,7 +11,7 @@ namespace FlightPlannerVS.Storage
     {
         private static List<Flight> _flights = new List<Flight>();
         private static int _id = 0;
-        private static readonly object _flightLock = new object();
+        public static readonly object _flightLock = new object();
 
         public static Flight AddFlight(AddFlightRequest request)
         {
@@ -33,6 +33,20 @@ namespace FlightPlannerVS.Storage
             }
         }
 
+        public static Flight ConvertToFlight(AddFlightRequest request)
+        {
+            var flight = new Flight
+            {
+                From = request.From,
+                To = request.To,
+                ArrivalTime = request.ArrivalTime,
+                DepartureTime = request.DepartureTime,
+                Carrier = request.Carrier
+            };
+
+            return flight;
+        }
+
         public static Flight GetFlight(int id)
         {
             lock (_flightLock)
@@ -51,7 +65,6 @@ namespace FlightPlannerVS.Storage
                     _flights.Remove(flight);
             }
         }
-
 
         public static List<Airport> FindAirports(string userInput)
         {
@@ -101,14 +114,12 @@ namespace FlightPlannerVS.Storage
 
             if (request.From == null || request.To == null) return false;
 
-            if (string.IsNullOrEmpty(request.From.AirportName) || string.IsNullOrEmpty(request.From.City) 
-                                                               || string.IsNullOrEmpty(request.From.Country))
+            if (string.IsNullOrEmpty(request.From.AirportName) || string.IsNullOrEmpty(request.From.City) || string.IsNullOrEmpty(request.From.Country))
             {
                 return false;
             }
 
-            if (string.IsNullOrEmpty(request.To.AirportName) || string.IsNullOrEmpty(request.To.City) 
-                                                            || string.IsNullOrEmpty(request.To.Country))
+            if (string.IsNullOrEmpty(request.To.AirportName) || string.IsNullOrEmpty(request.To.City) || string.IsNullOrEmpty(request.To.Country))
             {
                 return false;
             }
@@ -123,12 +134,7 @@ namespace FlightPlannerVS.Storage
             var arrivalTime = DateTime.Parse(request.ArrivalTime);
             var departureTime = DateTime.Parse(request.DepartureTime);
 
-            if (arrivalTime <= departureTime)
-            {
-                return false;
-            }
-
-            return true;
+            return arrivalTime > departureTime;
         }
 
         public static PageResult SearchFlights(SearchFlightRequest request)

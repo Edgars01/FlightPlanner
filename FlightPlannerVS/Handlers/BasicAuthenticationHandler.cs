@@ -21,17 +21,12 @@ namespace FlightPlannerVS.Handlers
         {
         }
 
-        protected override Task HandleChallengeAsync(AuthenticationProperties properties)
-        {
-            return base.HandleChallengeAsync(properties);
-        }
-
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            return Task.FromResult(Authorzie());
+            return Task.FromResult(Authorize());
         }
 
-        private AuthenticateResult Authorzie()
+        private AuthenticateResult Authorize()
         {
             if (!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Missing Authorization Header");

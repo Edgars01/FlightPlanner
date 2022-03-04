@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gbhui\\Desktop\\Http\\FlightPlannerVS\\FlightPlannerVS\\FlightPlannerVS.csproj": {}
+    "C:\\Users\\gbhui\\Desktop\\Http\\httpPlanner\\HTTP\\FlightPlannerVS\\FlightPlannerVS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gbhui\\Desktop\\Http\\FlightPlannerVS\\FlightPlannerVS\\FlightPlannerVS.csproj": {
+    "C:\\Users\\gbhui\\Desktop\\Http\\httpPlanner\\HTTP\\FlightPlannerVS\\FlightPlannerVS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gbhui\\Desktop\\Http\\FlightPlannerVS\\FlightPlannerVS\\FlightPlannerVS.csproj",
+        "projectUniqueName": "C:\\Users\\gbhui\\Desktop\\Http\\httpPlanner\\HTTP\\FlightPlannerVS\\FlightPlannerVS.csproj",
         "projectName": "FlightPlannerVS",
-        "projectPath": "C:\\Users\\gbhui\\Desktop\\Http\\FlightPlannerVS\\FlightPlannerVS\\FlightPlannerVS.csproj",
+        "projectPath": "C:\\Users\\gbhui\\Desktop\\Http\\httpPlanner\\HTTP\\FlightPlannerVS\\FlightPlannerVS.csproj",
         "packagesPath": "C:\\Users\\gbhui\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gbhui\\Desktop\\Http\\FlightPlannerVS\\FlightPlannerVS\\obj\\",
+        "outputPath": "C:\\Users\\gbhui\\Desktop\\Http\\httpPlanner\\HTTP\\FlightPlannerVS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -45,6 +45,26 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
